@@ -1,0 +1,5 @@
+# The image only needs the built static site and the nginx config.
+# Ignore everything else to keep the build context tiny.
+*
+!site
+!nginx.conf

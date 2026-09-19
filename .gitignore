@@ -1,0 +1,8 @@
+# Secrets — never commit (this repo is public)
+.env
+.env.*
+!.env.example
+
+# OS noise
+.DS_Store
+**/.DS_Store

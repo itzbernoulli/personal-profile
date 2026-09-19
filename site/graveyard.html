@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Graveyard — Ayodeji Oyinloye</title>
+<meta name="description" content="Retired projects by Ayodeji Oyinloye — apps that shipped, served their time, and have since gone offline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#17110c;--bg-2:#1f1810;--panel:#241c13;--line:#3a2e1f;
+    --ink:#f3ebdd;--muted:#ab9c85;--brass:#f2a63b;--brass-soft:#ffce7a;
+    --sans:"Space Grotesk",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--brass);color:#17110c}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+
+  header.top{position:sticky;top:0;z-index:50;background:rgba(23,17,12,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .back{font-family:var(--mono);font-size:.85rem;color:var(--muted);transition:color .2s;display:flex;align-items:center;gap:.5rem}
+  .back:hover{color:var(--brass)}
+  .top .here{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+
+  .hero{padding:80px 0 40px;border-bottom:1px solid var(--line);text-align:center;
+    background:radial-gradient(120% 90% at 50% -20%,rgba(242,166,59,.10),transparent 55%),var(--bg)}
+  .hero .stone{font-size:2.6rem;filter:grayscale(1);opacity:.75}
+  .hero h1{font-family:var(--sans);font-weight:700;letter-spacing:-.02em;font-size:clamp(2.6rem,8vw,5rem);margin:14px 0 10px}
+  .hero p{color:var(--muted);max-width:52ch;margin:0 auto;font-size:1.05rem}
+  .hero .epitaph{font-family:var(--mono);color:var(--brass-soft);font-size:.85rem;margin-top:18px;font-style:italic}
+
+  section{padding:64px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:16px}
+  .sec-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);letter-spacing:-.01em}
+  .sec-head .idx{font-family:var(--mono);color:var(--brass);font-size:.85rem;margin-left:auto}
+  .hint{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-bottom:26px}
+
+  .log{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2)}
+  .log-row{display:grid;grid-template-columns:64px 1fr;border-bottom:1px solid var(--line);transition:background .2s}
+  .log-row:last-child{border-bottom:0}
+  .log-row:hover{background:var(--panel)}
+  .log-n{font-family:var(--mono);color:var(--brass);font-size:.85rem;padding:24px 0 0 20px;opacity:.4}
+  .log-main{padding:22px 24px 24px 6px;opacity:.45;filter:grayscale(.9);transition:opacity .3s,filter .3s}
+  .log-row:hover .log-main,.log-row:focus-within .log-main{opacity:1;filter:grayscale(0)}
+  .log-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .log-title h3{font-family:var(--sans);font-weight:600;font-size:1.22rem}
+  .archived{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:20px}
+  .log-sub{color:var(--muted);font-family:var(--mono);font-size:.82rem;margin-top:2px}
+  .log-desc{margin-top:12px;color:#d3c8b3;max-width:70ch;font-size:.98rem}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .chip{font-family:var(--mono);font-size:.72rem;color:var(--brass-soft);border:1px solid var(--line);background:var(--bg);padding:4px 10px;border-radius:6px}
+  @media(max-width:600px){.log-row{grid-template-columns:1fr}.log-n{padding:18px 20px 0}.log-main{padding:8px 20px 22px}}
+
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .gallery img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--panel);
+    opacity:.4;filter:grayscale(1);transition:opacity .3s,filter .3s,transform .2s}
+  .gallery img:hover{opacity:1;filter:grayscale(0);transform:scale(1.03)}
+  @media(max-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:460px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+  .foot-cta{text-align:center;padding:70px 0;border-top:1px solid var(--line)}
+  .foot-cta a{font-family:var(--mono);font-size:.9rem;color:var(--brass);border:1px solid var(--line);padding:13px 22px;border-radius:9px;transition:all .2s;display:inline-block}
+  .foot-cta a:hover{border-color:var(--brass);transform:translateY(-2px)}
+  footer{border-top:1px solid var(--line);padding:26px 0;font-family:var(--mono);font-size:.76rem;color:var(--muted);text-align:center}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="back" href="index.html">← back to live work</a>
+    <span class="here mono">/graveyard</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="stone">🪦</div>
+      <h1>The Graveyard</h1>
+      <p>Every one of these shipped and did its job. The servers have since gone quiet and the store listings retired — but the work still counts, so here they rest.</p>
+      <div class="epitaph">// they compiled. they served. they 404'd.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">At rest</span><h2>Retired projects</h2><span class="idx mono">R.I.P.</span></div>
+      <div class="hint">Dimmed on purpose — hover any row to bring it back to life.</div>
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Exhibits</span><h2>Screens they left behind</h2><span class="idx mono">◦</span></div>
+      <div class="hint">Screenshots from the retired apps — hover to un-dim.</div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <div class="foot-cta">
+    <a href="index.html">← See what's live today</a>
+  </div>
+</main>
+<footer>© 2026 Ayodeji Oyinloye · gone but not forgotten</footer>
+
+<script>
+  const projects = [
+    {t:"Afrolang Words",sub:"Bite-sized language learning",d:"A platform to learn indigenous words in any African language — daily word drops, a quiz mode, and a favourites section, backed by a dashboard that tracked usage to guide the roadmap.",stack:["Ruby on Rails","PostgreSQL","Android","Java"]},
+    {t:"Early Literacy Project",sub:"Helping early graders become literate",d:"A web backend for program managers plus an offline-first app early graders used to learn alphabets, words and sentences — syncing new content and adapting to any language or character system.",stack:["Ruby on Rails","PostgreSQL","Android","ObjectBox"]},
+    {t:"TransgovGH",sub:"Monitor & comment on public projects",d:"Built on Ghana's Open Data Initiative so citizens could track and comment on developmental projects nationwide — advancing accountability and data-driven decisions in local governance.",stack:["Android","Java","Volley","ObjectBox"]},
+    {t:"Eki Data Capture",sub:"Trader-Moni monitoring",d:"Helped the Edo State government record and track Trader-Moni beneficiaries after payout, so the impact of disbursed funds could be measured accurately.",stack:["Android","Java","Retrofit","ObjectBox"]},
+    {t:"Advance Bank",sub:"What you wish your bank could do",d:"A digital banking platform offering bespoke advisory — financial and investment advice, budgeting tips and loans — through a mobile-first experience built to feel seamless.",stack:["Android","Java","XMPP","OkHttp"]},
+    {t:"Spiritual Journal",sub:"Keep track of daily devotionals",d:"Helped people record and share devotionals, plan Bible readings across the calendar year, and document lessons or insights to share on social media.",stack:["Ruby on Rails","PostgreSQL","Android","Java"]}
+  ];
+  const log=document.getElementById('log');
+  projects.forEach((p,i)=>{
+    log.insertAdjacentHTML('beforeend',`
+      <div class="log-row" tabindex="0">
+        <div class="log-n">${String(i+1).padStart(2,'0')}</div>
+        <div class="log-main">
+          <div class="log-title"><h3>${p.t}</h3><span class="archived">◦ retired</span></div>
+          <div class="log-sub">${p.sub}</div>
+          <div class="log-desc">${p.d}</div>
+          <div class="chips">${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div>
+        </div>
+      </div>`);
+  });
+
+  const g=document.getElementById('gallery');
+  for(let i=1;i<=20;i++)g.insertAdjacentHTML('beforeend',`<img loading="lazy" src="images/screenshot/screenshot_${i}.png" alt="Screenshot from a retired app">`);
+</script>
+</body>
+</html>

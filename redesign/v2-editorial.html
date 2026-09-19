@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayodeji Oyinloye — Software Engineer & Writer</title>
+<meta name="description" content="Ayodeji Oyinloye — software engineer building mobile and web products with human impact, and writing about the craft.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f1f0ea;
+    --paper-2:#e9e8e1;
+    --ink:#161519;
+    --ink-soft:#4b4954;
+    --rule:#d3d1c7;
+    --accent:#1c33e6;
+    --accent-2:#c4451f;
+    --disp:"Archivo",system-ui,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  @media(max-width:600px){.wrap{padding:0 22px}}
+  .disp{font-family:var(--disp)}
+  .kicker{font-family:var(--disp);font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+
+  header.top{border-bottom:1.5px solid var(--ink);position:sticky;top:0;background:var(--paper);z-index:40}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .top .brand{font-family:var(--disp);font-weight:900;letter-spacing:-.01em;font-size:1.15rem}
+  .top nav{display:flex;gap:26px;font-family:var(--disp);font-weight:600;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
+  .top nav a{color:var(--ink-soft);transition:color .2s}
+  .top nav a:hover{color:var(--accent)}
+  @media(max-width:680px){.top nav{display:none}}
+
+  /* masthead hero */
+  .masthead{padding:26px 0 10px;border-bottom:1.5px solid var(--ink)}
+  .masthead .meta{display:flex;justify-content:space-between;font-family:var(--disp);font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:8px}
+  .hero{padding:44px 0 64px}
+  .hero h1{font-family:var(--disp);font-weight:900;line-height:.9;letter-spacing:-.03em;font-size:clamp(3.4rem,13vw,10rem);text-transform:uppercase}
+  .hero .sub{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:end;margin-top:26px;border-top:1.5px solid var(--ink);padding-top:22px}
+  @media(max-width:760px){.hero .sub{grid-template-columns:1fr;gap:20px}}
+  .hero .sub .lead{font-size:1.45rem;line-height:1.4;max-width:24ch}
+  .hero .sub .lead em{font-style:italic;color:var(--accent)}
+  .hero .sub .right{font-family:var(--serif)}
+  .hero .role{font-family:var(--disp);font-weight:800;font-size:1rem;letter-spacing:.02em}
+  .hero .actions{display:flex;gap:14px;margin-top:16px;flex-wrap:wrap}
+  .lnk{font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:11px 18px;border:1.5px solid var(--ink);transition:all .18s}
+  .lnk.fill{background:var(--ink);color:var(--paper)}
+  .lnk.fill:hover{background:var(--accent);border-color:var(--accent)}
+  .lnk:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* section framing */
+  section{padding:66px 0}
+  .band{display:grid;grid-template-columns:180px 1fr;gap:40px;border-top:1.5px solid var(--ink);padding-top:30px}
+  @media(max-width:760px){.band{grid-template-columns:1fr;gap:16px}}
+  .band .label h2{font-family:var(--disp);font-weight:900;font-size:1.7rem;line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+  .band .label .n{font-family:var(--disp);font-weight:600;font-size:.75rem;color:var(--accent);letter-spacing:.14em;margin-bottom:8px}
+
+  .about p{font-size:1.5rem;line-height:1.5;max-width:30ch;font-family:var(--serif)}
+  .about-cols{columns:2;column-gap:44px;font-size:1.12rem;margin-top:0}
+  .about-cols p:first-child::first-letter{font-family:var(--disp);font-weight:900;float:left;font-size:3.6rem;line-height:.72;padding:6px 10px 0 0;color:var(--accent)}
+  @media(max-width:760px){.about-cols{columns:1}}
+  .creds{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1.5px solid var(--ink);margin-top:34px}
+  .creds div{padding:18px 0;border-bottom:1px solid var(--rule)}
+  .creds div:nth-child(odd){padding-right:28px}
+  .creds div:nth-child(even){padding-left:28px;border-left:1px solid var(--rule)}
+  .creds dt{font-family:var(--disp);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .creds dd{margin-top:5px;font-size:1.05rem;line-height:1.35}
+  @media(max-width:600px){.creds{grid-template-columns:1fr}.creds div:nth-child(even){padding-left:0;border-left:0}.creds div:nth-child(odd){padding-right:0}}
+
+  /* work */
+  .work-item{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:baseline;padding:22px 0;border-top:1px solid var(--rule);transition:background .2s}
+  .work-item:first-child{border-top:0}
+  .work-item:hover{background:var(--paper-2)}
+  .work-item .wn{font-family:var(--disp);font-weight:700;color:var(--accent);font-size:.9rem}
+  .work-item h3{font-family:var(--disp);font-weight:800;font-size:1.55rem;letter-spacing:-.01em;line-height:1.05;display:inline}
+  .work-item .role2{color:var(--ink-soft);font-style:italic;font-size:1.05rem}
+  .work-item p{margin-top:8px;color:var(--ink-soft);max-width:62ch;font-size:1.02rem}
+  .work-item .stack{font-family:var(--disp);font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-top:10px}
+  .work-item .arrow{font-family:var(--disp);font-size:1.4rem;color:var(--ink-soft);transition:transform .2s,color .2s}
+  .work-item:hover .arrow{transform:translate(3px,-3px);color:var(--accent)}
+  @media(max-width:600px){.work-item{grid-template-columns:auto 1fr;gap:14px}.work-item .arrow{display:none}}
+
+  /* writing feature */
+  .writing-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  @media(max-width:720px){.writing-list{grid-template-columns:1fr}}
+  .wr{padding:15px 0;border-top:1px solid var(--rule);display:flex;gap:14px;align-items:baseline;transition:color .2s}
+  .wr:hover{color:var(--accent)}
+  .wr .wri{font-family:var(--disp);font-weight:700;font-size:.78rem;color:var(--accent);flex:none}
+  .wr .wrt{font-size:1.12rem;line-height:1.3}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .gallery img{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--rule);filter:grayscale(.1)}
+  @media(max-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:460px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+  /* colophon / contact */
+  .colophon{background:var(--ink);color:var(--paper);padding:80px 0}
+  .colophon h2{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(2.2rem,8vw,5rem);line-height:.9;letter-spacing:-.02em}
+  .colophon a.mail{color:var(--paper);border-bottom:3px solid var(--accent)}
+  .colophon a.mail:hover{color:#fff;background:var(--accent)}
+  .colophon .socs{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+  .colophon .socs a{font-family:var(--disp);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid rgba(241,240,234,.4);padding:10px 16px;transition:all .2s}
+  .colophon .socs a:hover{background:var(--paper);color:var(--ink)}
+  .colophon .fine{margin-top:44px;font-family:var(--disp);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(241,240,234,.5)}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">OYINLOYE</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="masthead">
+    <div class="wrap">
+      <div class="meta"><span>Senior Software Engineer</span><span>Leiden · Netherlands</span><span>No. 01 / Portfolio</span></div>
+    </div>
+    <div class="wrap hero">
+      <h1>Ayodeji<br>Oyinloye</h1>
+      <div class="sub">
+        <p class="lead">I build software that creates <em>human impact</em> — from mobile products across Africa to data platforms in Europe — and I write about the craft of shipping it.</p>
+        <div class="right">
+          <div class="role">Senior Software Engineer & Writer</div>
+          <div class="actions">
+            <a class="lnk fill" href="https://docs.google.com/document/d/1DQ1uPAotOjzvLlxYwzQBo0CiC95CBwklJtUK_1sc6z8/edit?usp=sharing" target="_blank" rel="noopener">Read CV</a>
+            <a class="lnk" href="mailto:oyinloyeayodeji@gmail.com">Hire me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap band about">
+      <div class="label"><div class="n">§ 01</div><h2>About</h2></div>
+      <div>
+        <p style="margin-bottom:26px">A senior software engineer whose work has followed one thread: build things people actually use.</p>
+        <div class="about-cols">
+          <p>Today I'm at ReelMetrics in Leiden, building the big-data analytics platform behind the global gaming industry. It's a long way from where I started — years spent shipping mobile and web products across African markets, at the intersection of good engineering and genuine usefulness: language learning, civic accountability, literacy, and finance.</p>
+          <p>I'm passionate about solving problems, developing people, and applying lean and agile principles to daily work. AWS- and Kubernetes-certified, I work across Rails, Java/Android, PostgreSQL and cloud infrastructure. When I'm not shipping, I'm writing about the craft — and the messy human side of building products.</p>
+        </div>
+        <dl class="creds">
+          <div><dt>Now</dt><dd>Senior Software Engineer, ReelMetrics — Leiden, NL</dd></div>
+          <div><dt>Certified</dt><dd>AWS Certified Developer · CKAD (Kubernetes)</dd></div>
+          <div><dt>Studied</dt><dd>B.Eng, Federal University of Technology, Akure</dd></div>
+          <div><dt>Languages</dt><dd>English · French · Yoruba</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="padding-top:0">
+    <div class="wrap band">
+      <div class="label"><div class="n">§ 02</div><h2>Selected<br>Work</h2></div>
+      <div id="work-list"></div>
+    </div>
+  </section>
+
+  <section id="writing" style="padding-top:0">
+    <div class="wrap band">
+      <div class="label"><div class="n">§ 03</div><h2>Writing</h2></div>
+      <div class="writing-list" id="writing-list"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap band">
+      <div class="label"><div class="n">§ 04</div><h2>In the<br>Wild</h2></div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+</main>
+
+<section class="colophon" id="contact">
+  <div class="wrap">
+    <div class="kicker" style="color:#fff;opacity:.7">Contact</div>
+    <h2 style="margin-top:14px">Let's build<br>something. <a class="mail" href="mailto:oyinloyeayodeji@gmail.com">Email me →</a></h2>
+    <div class="socs">
+      <a href="https://github.com/itzbernoulli" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/oyinloyeayodeji/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/itzbernoulli" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://medium.com/@oyinloyeayodeji" target="_blank" rel="noopener">Medium</a>
+      <a href="https://www.youtube.com/channel/UC_u2ffn6UE3J6HKeh-DM0Wg" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/obayodeji" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="fine">© 2026 Ayodeji Oyinloye · Turdla Global Services Ltd · All rights reserved</div>
+  </div>
+</section>
+
+<script>
+  const projects = [
+    {t:"Afrolang Words",role:"Bite-sized African language learning",url:"https://play.google.com/store/apps/details?id=com.turdla.www.afrolang",d:"A platform for learning indigenous words in any African language — daily word drops, a quiz mode, and a favourites section — with a dashboard tracking usage to guide the roadmap.",stack:"Rails · PostgreSQL · Android · Java"},
+    {t:"Early Literacy Project",role:"Helping early graders become literate",url:"https://play.google.com/store/apps/details?id=org.millenniumpromise.www.earlyliteracyapp",d:"A backend for program managers and an offline-first app early graders use to learn alphabets, words and sentences. Syncs new content and adapts to any language or character system.",stack:"Rails · PostgreSQL · Android · ObjectBox"},
+    {t:"TransgovGH",role:"Civic accountability, Ghana Open Data",url:"https://play.google.com/store/apps/details?id=org.transgovgh.app",d:"Built on Ghana's Open Data Initiative so citizens can monitor and comment on developmental projects — advancing accountability and data-driven governance.",stack:"Android · Java · Volley · ObjectBox"},
+    {t:"Eki Data Capture",role:"Trader-Moni monitoring, Edo State",url:"https://play.google.com/store/apps/details?id=buhari.teetech.com.datacapture",d:"Records and tracks Trader-Moni beneficiaries after payout so the government can measure how effectively disbursed funds are used.",stack:"Android · Java · Retrofit · ObjectBox"},
+    {t:"Advance Bank",role:"Digital banking & advisory",url:"https://advancebank.ng/",d:"A mobile-first banking platform offering bespoke advisory — financial and investment advice, budgeting, and loans — designed to feel seamless.",stack:"Android · Java · XMPP · OkHttp"},
+    {t:"Spiritual Journal",role:"Devotional journaling",url:"https://play.google.com/store/apps/details?id=com.oyinloyeayodeji.www.devotion2",d:"Helps people record and share devotionals, plan Bible readings across the year, and document insights to share on social media.",stack:"Rails · PostgreSQL · Android · Java"},
+    {t:"Clinic App",role:"Clinic records, front desk to pharmacy",url:"http://hotrclinic.herokuapp.com/",d:"Manages patient records along a clinic's real process flow — front desk, nurses, doctors (ICD-10), and pharmacy — with appointment booking built in.",stack:"Rails · PostgreSQL"},
+    {t:"Vendorhit",role:"Merchant discovery & ratings",url:"http://vendorhit.herokuapp.com/",d:"Helps sellers grow their audience and helps buyers find Instagram sellers, rate them, and post reviews others can trust.",stack:"Rails · PostgreSQL · Chart.js"}
+  ];
+  const wl=document.getElementById('work-list');
+  projects.forEach((p,i)=>{
+    wl.insertAdjacentHTML('beforeend',`
+      <a class="work-item" href="${p.url}" target="_blank" rel="noopener">
+        <span class="wn">${String(i+1).padStart(2,'0')}</span>
+        <span>
+          <h3>${p.t}</h3> <span class="role2">— ${p.role}</span>
+          <p>${p.d}</p>
+          <div class="stack">${p.stack}</div>
+        </span>
+        <span class="arrow">↗</span>
+      </a>`);
+  });
+
+  const articles = [
+    ["Setting Up Tests in Rails with RSpec","https://medium.com/@oyinloyeayodeji/setting-up-tests-in-rails-with-rspec-a00e341eec71"],
+    ["Java Keywords and Descriptions","https://medium.com/@oyinloyeayodeji/java-keywords-and-descriptions-3fc2f97037bd"],
+    ["Returning a Response for Android Volley with WorkManager","https://medium.com/@oyinloyeayodeji/return-a-response-for-android-volley-when-using-workmanager-e030ecda4dd4"],
+    ["Minimum Viable Products (MVPs) as Humans","https://medium.com/@oyinloyeayodeji/minimum-viable-products-mvps-as-humans-3638018e3f74"],
+    ["Responding to Click Events in Android","https://medium.com/@oyinloyeayodeji/responding-to-click-events-in-android-5329eb86bb09"],
+    ["Importance of Open Source Licenses","https://medium.com/@oyinloyeayodeji/accepting-the-legal-handshake-importance-of-open-source-licenses-a4bc8b4f3686"],
+    ["Buttons to Modify Items in an Android ListView","https://medium.com/@oyinloyeayodeji/buttons-to-modify-items-in-an-android-listview-57d6f602d20e"],
+    ["The Git Life","https://medium.com/@oyinloyeayodeji/the-git-life-34c607db815e"],
+    ["One Year Down and 5 Apps Up: My Android Journey","https://medium.com/@oyinloyeayodeji/one-year-down-and-5-apps-up-my-android-journey-4cf0dca88315"],
+    ["Describing Entrepreneurship","https://medium.com/@oyinloyeayodeji/describing-entrepreneurship-59b85807696a"]
+  ];
+  const wrl=document.getElementById('writing-list');
+  articles.forEach((a,i)=>{
+    wrl.insertAdjacentHTML('beforeend',`<a class="wr" href="${a[1]}" target="_blank" rel="noopener"><span class="wri">${String(i+1).padStart(2,'0')}</span><span class="wrt">${a[0]}</span></a>`);
+  });
+
+  const g=document.getElementById('gallery');
+  for(let i=1;i<=10;i++)g.insertAdjacentHTML('beforeend',`<img loading="lazy" src="../images/screenshot/screenshot_${i}.png" alt="App screenshot">`);
+</script>
+</body>
+</html>

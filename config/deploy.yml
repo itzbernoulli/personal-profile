@@ -1,0 +1,50 @@
+# Kamal config for oyinloye.com — a static nginx site on the homelab.
+# Single production destination (no staging). Deploy with: kamal deploy
+service: oyinloye
+
+# Docker Hub repo (same account as kidstercorner / tradingbot).
+image: honey3rdla/oyinloye
+
+# Homelab server.
+servers:
+  web:
+    - 192.168.2.10
+
+# TLS terminates at the Cloudflare tunnel; kamal-proxy sees plain HTTP.
+# The homelab kamal-proxy is shared, so the hostname must be claimed here —
+# cloudflared preserves the public Host header end-to-end.
+proxy:
+  ssl: false
+  app_port: 80
+  # nginx has no /up endpoint, so health-check the root document instead.
+  healthcheck:
+    path: /
+  hosts:
+    - oyinloye.com
+    - www.oyinloye.com
+
+# Image host credentials (password pulled from .env.production via .kamal/secrets).
+registry:
+  username: honey3rdla
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Homelab is x86_64; build cross-arch from the Mac.
+builder:
+  arch: x86_64
+
+ssh:
+  user: ayodeji
+  port: 2222
+
+aliases:
+  logs: app logs
+  shell: app exec --interactive --reuse "sh"
+
+logging:
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+retain_containers: 5
